@@ -9,6 +9,14 @@ class TreeNode:
 
 class Solution:
     def createBinaryTree(self,descriptions):
+
+#         # pattern 
+#         nodes = {}        # value -> TreeNode
+# children = set() # all nodes that appeared as child
+
+# # build links
+
+# root = all_nodes - children
         # root is the node that never appears as a child
         nodes={}
         children=set()
@@ -39,6 +47,18 @@ def preorder(root):
     print(root.val, end=" ")
     preorder(root.left)
     preorder(root.right)
+
+
+def display(root, level=0):
+
+    if root is None:
+        return
+
+    display(root.right, level + 1)
+
+    print("    " * level + str(root.val))
+
+    display(root.left, level + 1)
 
 
 descriptions=[[20,15,1],[20,17,0],[50,20,1],[50,80,0],[80,19,1]]
